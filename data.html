@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="View the infographics on the Page regarding the US projects and budgeting.">
+    <meta name="author" content="Michael Dyrbus">
+    <link rel="shortcut icon" href="images/favicon2.ico">
+   
+    <title>Starter Template for Bootstrap</title>
+	<!-- d3js -->
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+    <!-- Custom styles for this template -->
+    <link href="css/infographic-theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Mike's Infographics</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#Data">Data</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">References</a></li>
+			
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+	
+      <div class="starter-template">
+        <h1>Data</h1>
+        <p class="lead">The data was open data from the Projects dataset available at USA's<a href="https://www.itdashboard.gov/data_feeds"> Government Dashboard</p>
+      </div>
+
+
+	 	  
+	  <div style="width: 45%; float: left;"> <h2><a href="plot.html">Scatter Plot</a></h2>
+		 <p> This infographic was based on <a href="http://bl.ocks.org/weiglemc/6185069"> D3 Scatterplot Example</a> by Github user weiglemc</p> </div>
+	  <div style="margin-left: 55%;"> <h2><a href="stream.html">Sunburst</a></h2>
+  		 <p> This infographic was based on <a href="http://bl.ocks.org/mbostock/4348373">Zoomable Sunburst</a> by mbostock  </p>		   </div>
+	  
+	  
+	  
+	  
+	  </div>
+		  
+    </div><!-- /.container -->
+
+
+        <script src="script.js" type="text/javascript" ></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
