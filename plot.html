@@ -76,7 +76,7 @@
 
     //Sets margin for the infographic
     var margin = {top: 20, right: 200, bottom: 30, left: 60},
-        totalwidth=($(window).width()<1410)?960:$(window).width()-550;
+        totalwidth=($(window).width()<1310)?960:$(window).width()-350;
         width = totalwidth - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -206,9 +206,25 @@
                               .style("opacity", 0);   
                       });
               ;
+			  
+			  //removes if off the graph
+			  dots
+			  	.filter(function(d){
+				var xTemp=x(x.domain()[1]);
+			  	if (x(d.lifeVariance)>xTemp){
+			  		return true
+			  	}
+				return false;
+//				console.log(x(d.lifeVariance));
+//				console.log(x.domain()[1]);	
+			  })
+			  .remove();
       
 
     }
+	
+	
+	
     var data;
     //loads up using the csv
     d3.csv("data/Projects2.csv", function(error, darstardlydata) {
@@ -225,7 +241,7 @@
       });
 
 
-      nest = d3.nest()
+    /*  nest = d3.nest()
           .key(function(d) { return d.company; })
           .key(function(d) { return d.investment; })
           .rollup(function(d) {
@@ -233,7 +249,7 @@
               return g.cost;
             })
           })
-          .entries(data);
+          .entries(data);*/
 
           //convertToFlame(nest);
 
@@ -251,15 +267,12 @@
           .attr("class", "legend")
           .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
       legend.append("rect")
-          .attr("x", width +10)
+          .attr("x", width +20)
           .attr("width", 18)
           .attr("height", 18)
           .style("fill", color)
-          .on("click",function(d,i){  
-          
-                
-            
-              nest=svg.selectAll(".dot")
+          .on("click",function(d,i){              
+              svg.selectAll(".dot")
                 .filter(function(g){ return g.company===d})
                 .classed("hidden",false);
             
@@ -284,7 +297,7 @@
       
     //sets the text for the legend.
       legend.append("text")
-          .attr("x", width +30)
+          .attr("x", width +40)
           .attr("y", 9)
           .attr("dy", ".35em")
           .style("text-anchor", "front")
@@ -342,7 +355,7 @@
     }
 
     function zoomto(x1,x2,y1,y2){
-        console.log(x1,x2,y1,y2);
+        
         x.domain([x1,x2]);
         y.domain([y1,y2]);
         refresh();
