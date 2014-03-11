@@ -98,10 +98,14 @@ I went through all the values >1000 and compared the lifecycle to the actual cos
 
 
 SECTION Visualisation choice
+
 Visualisation 1: Scatter Plot. 
+This infographic was based on  http://bl.ocks.org/weiglemc/6185069 D3 Scatterplot Exampleby Github user weiglemc
 This visualisation uses the following data from the dataset because it is neccessary to be able to see and account for why projects change from the original plan. The visualisation clearly portrays any deviation from the planned, with being able to simple review particular departments specific performance. This is appropriate for anybody concerened with department planning, or how the government is performing. As it is a time of austerity this is a large audience, as it is important to see if a particular department is constantly either overbudget or delayed. This enables comparison of department performance and brings into question the accountability for some extreme values and merit the postiive ones. Often question is placed on estimates being vastly over or under an expected value,a nd this shows how well the project planning performas aswell. By having the cost relative to the size, it means you can easily compare the size of the project to see if there is any direct correlation.
 
-Visualisation 2: Streamograph. 
+Visualisation 2: Sunburst. 
+
+This infographic was based on http://bl.ocks.org/mbostock/4348373 Zoomable Sunburstby mbostock 
 This visualisation uses the following data from the dataset because it is important to see how the work is divided throughout the information. The visualisation allows a clear view of how the projects budget is divided, oth by department, but then further in depth by also viewing by investment gropu, and project. This is suited to view how the budget is spent, to analyse where savings can be made. This helps understand wich investment areas are the large costs of the individual projects.
 
 
@@ -139,7 +143,7 @@ I chose the D3.js library for the visualisation for several reasons.
 	
 Each visualisation is robust because they take the original data.
 
-The data was prepared for visualisation locally, allowing for another csv to be used to replace the data. It is assumed it is already cleaned before it is put into place. The streamograph has to prepare the data by using 'D3's .nest' function the flat csv structure into a hierchical structure.
+The data was prepared for visualisation locally, allowing for another csv to be used to replace the data. It is assumed it is already cleaned before it is put into place. The sunburst has to prepare the data by using 'D3's .nest' function the flat csv structure into a hierchical structure.
 
 For source control I use a local git repository that was backed up in dropbox. this meant that changes could be tracked, and reverted if neccessary.
 	
