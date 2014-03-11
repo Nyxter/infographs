@@ -11,7 +11,7 @@
     <meta content="Michael Dyrbus" name="author">
     <link href="images/favicon2.ico" rel="shortcut icon">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Scatter Plot graph</title>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script><!-- d3js -->
 
     <script charset="utf-8" src="http://d3js.org/d3.v3.min.js"></script><!-- Bootstrap core CSS -->
@@ -43,7 +43,10 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li ><a href="index.html">Home</a></li>
+            <li class="active"><a href="plot.html">Scatter</a></li>
+            <li ><a href="stream.html">Sunburst</a></li>
+			
             <li><a href="data.html">References</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -56,9 +59,10 @@
             <h1>Scatter Graph</h1>
 
             <h2>Information</h2>
-        </div><button id="zoomin">in</button> <button id="zoomout">out</button>
-        <button id="update">Update</button> <input id="x1" type="number">
-        <input id="x2" type="number"> <input id="y1" type="number"> <input id=
+        </div>Click here too zoom In:<button id="zoomin">in</button> click here to zoom out:<button id="zoomout">out</button>
+        <button id="update">Update axes</button> 
+		x:<input id="x1" type="number"> to
+        <input id="x2" type="number">  y:<input id="y1" type="number"> to <input id=
         "y2" type="number">
 
         <div id="bottomdiv"></div>
