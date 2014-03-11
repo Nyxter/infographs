@@ -3,6 +3,8 @@ Live site:
 Can be found at :
 Your site is published at http://nyxter.github.io/infographs
 
+The github repository for it can be found out :
+https://github.com/Nyxter/infographs
 
 
 
