@@ -136,10 +136,9 @@
     //variable to toggle when selecting
     var showing=false;
 
-    //variable to hold nested arrays
-    var nest;
-    function addValues(){
 
+
+    function addValues(){
         //x axis label class - grouped 
       svg.append("g")
           .attr("class", "x axis")
@@ -194,9 +193,9 @@
                               .duration(200)      
                               .style("opacity", .9);    
                         
-                          div .html(d.project +  "<br/>"+"<br/>" +"$"+
+                          div .html(d.project +  "<br/>"+"<br/>" +"Total Cost: $"+
 
-          parseFloat(d.cost).toFixed(1)+"mil"+ "<br/>"+"Cost Variance:" +d.costVariance+"<br/> Life Variance"+d.lifeVariance)  
+          parseFloat(d.cost).toFixed(1)+"mil"+ "<br/>"+"Cost Variance:" +d.costVariance+"<br/> Duration Variance :"+d.lifeVariance+"days")  
                               .style("left", (d3.event.pageX) + "px")     
                               .style("top", (d3.event.pageY - 28) + "px");    
                           })                  
@@ -241,18 +240,6 @@
       });
 
 
-    /*  nest = d3.nest()
-          .key(function(d) { return d.company; })
-          .key(function(d) { return d.investment; })
-          .rollup(function(d) {
-            return d3.sum(d, function(g) {
-              return g.cost;
-            })
-          })
-          .entries(data);*/
-
-          //convertToFlame(nest);
-
     //sets the domain for x and y - uses extent which takes max & min
       x.domain(d3.extent(data, function(d) { return d.lifeVariance; })).nice();
      // x.domain([0,100]).nice(); 
@@ -288,9 +275,6 @@
                         .classed("hidden",false);
             }
             
-                    
-    //          .classed("hidden",true);
-              //$('.dot').hide();
           
       })
       
