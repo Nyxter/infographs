@@ -58,7 +58,6 @@
         <div id="topdiv">
             <h1>Scatter Graph</h1>
 
-            <h2>Information</h2>
         </div>Click here too zoom In:<button id="zoomin"><span class="glyphicon glyphicon-plus"></span></button> click here to zoom out:<button id="zoomout"><span class="glyphicon glyphicon-minus"></span></button><br/>
         <br/>
 		x:<input id="x1" type="number"> to
@@ -71,8 +70,9 @@
 		<p>The key functionality is explained below :</p>
 		<ul>	
 			<li>To restrict the visible values, click on the square on the legend. Reclick to reveal the hidden values.</li>
-			<li>The zoom ina nd out butons can beused to see the graph in depth</li>		
-			<li>Use the text areas to enter the axes values to make visible,</li>
+			<li>The zoom in and out butons can be used to see the graph in depth.</li>		
+			<li>Use the text areas to enter the axes values to change the chart axes to examine other data.</li>
+			<li>Arrow/WASD keys can move. + and - key can zoom in and out.</li>
 		</ul>
 		
     </div><!-- /.container -->
@@ -199,7 +199,7 @@
                         
                           div .html(d.project +  "<br/>"+"<br/>" +"Total Cost: $"+
 
-          parseFloat(d.cost).toFixed(1)+"mil"+ "<br/>"+"Cost Variance:" +d.costVariance+"<br/> Duration Variance :"+d.lifeVariance+"days")  
+          parseFloat(d.cost).toFixed(1)+"mil"+ "<br/>"+"Cost Variance : $" +d.costVariance+"mil<br/>Time Variance :"+d.lifeVariance+"days")  
                               .style("left", (d3.event.pageX) + "px")     
                               .style("top", (d3.event.pageY - 28) + "px");    
                           })                  
@@ -303,8 +303,14 @@
                           .duration(500)      
                           .style("opacity", 0);   
                   });
-		zoom(false);
-		
+
+
+		          var xCurrent=x.domain();
+		          var yCurrent=y.domain();
+		          $('#x1').val(parseFloat(xCurrent[0]).toFixed(2));
+		          $('#x2').val(parseFloat(xCurrent[1]).toFixed(2));
+		          $('#y1').val(parseFloat(yCurrent[0]).toFixed(2));
+		          $('#y2').val(parseFloat(yCurrent[1]).toFixed(2));
     });
 
 
@@ -330,20 +336,31 @@
     }
 
     function zoom(inwards){
+		var xa=x1=x.domain()[0],
+			xb=x2=x.domain()[1],
+			ya=y1=y.domain()[0],
+			yb=y2=y.domain()[1];
+
+		var xChange= Math.abs(x2 - x1)*.1;
+		var yChange= Math.abs(y2 - y1)*.1;	
+
 		if (inwards===true){
-			a=1.1;
-			b=0.9
+			xa=xa+xChange;
+			xb=xb-xChange;
+			ya=ya+yChange;
+			yb=yb+yChange;
 		}else{
-			a=0.9;
-			b=1.1;
+			xa=xa-xChange;
+			xb=xb+xChange;
+			ya=ya-yChange;
+			yb=yb-yChange;
 		};
-        var xCurrent=x.domain();
-        var yCurrent=y.domain();
-        zoomto(xCurrent[0]*a,xCurrent[1]*b,yCurrent[0]*a,yCurrent[1]*b)
+
+
+        zoomto(xa,xb,ya,yb);
     }
 
     function zoomto(x1,x2,y1,y2){
-        
         x.domain([x1,x2]);
         y.domain([y1,y2]);
         refresh();
@@ -365,6 +382,62 @@
         $('#y1').val(parseFloat(yCurrent[0]).toFixed(2));
         $('#y2').val(parseFloat(yCurrent[1]).toFixed(2));
     }
+
+	function move(dir){
+		var xa=x1=x.domain()[0],
+			xb=x2=x.domain()[1],
+			ya=y1=y.domain()[0],
+			yb=y2=y.domain()[1];
+
+		var xChange= Math.abs(Math.abs(x2) - Math.abs(x1))*.1;
+		var yChange= Math.abs(Math.abs(y2) - Math.abs(y1))*.1;		
+
+		
+		if (dir===1){
+			ya=ya+yChange;
+			yb=yb+yChange;
+		}else if (dir===2){
+			xa=xa+yChange;
+			xb=xb+yChange;
+
+		}else if (dir===3){
+			ya=ya-yChange;
+			yb=yb-yChange;
+		}else if (dir===4){
+			xa=xa-yChange;
+			xb=xb-yChange;
+		}
+		zoomto(xa,xb,ya,yb);
+		
+	}
+
+
+	$(document).keydown(function(e) { 
+		var     left = 37,
+		        up = 38,
+		        right = 39,
+		        down = 40,
+				w =87,
+				a= 65,
+				s=83,
+				d=68,	
+				q=81,
+				es=69
+			
+		    if ((e.keyCode == left)||(e.keyCode == a)) {
+		        move(4);
+		    }else  if ((e.keyCode == up) || (e.keyCode==w)) {
+		        move(1);
+		    }else  if ((e.keyCode == right)||(e.keyCode==d)){
+		        move(2);
+		    }else  if ((e.keyCode == down)||(e.keyCode==s)) {
+		        move(3);
+		    }else if (e.keyCode==q){
+		    	zoom(false);
+		    }else if (e.keyCode==es){
+		    	zoom(true);
+		    }
+	});
 
     </script><script src="script.js" type="text/javascript"></script><!-- Bootstrap core JavaScript
     ================================================== -->
