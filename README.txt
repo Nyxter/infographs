@@ -114,7 +114,8 @@ This visualisation uses the following data from the dataset because it is necces
 
 Visualisation 2: Sunburst. 
 
-This infographic was based on http://bl.ocks.org/mbostock/4348373 Zoomable Sunburstby mbostock 
+This infographic was based on http://bl.ocks.org/mbostock/4348373 Zoomable Sunburstby mbostock , used labels from http://blog.luzid.com/2013/extending-the-d3-zoomable-sunburst-with-labels/
+
 This visualisation uses the following data from the dataset because it is important to see how the work is divided throughout the information. The visualisation allows a clear view of how the projects budget is divided, oth by department, but then further in depth by also viewing by investment gropu, and project. This is suited to view how the budget is spent, to analyse where savings can be made. This helps understand wich investment areas are the large costs of the individual projects.
 
 
