@@ -122,7 +122,7 @@ This visualisation uses the following data from the dataset because it is import
 
 
 SECTION Interactivity
-Both visualisations have common interaction of giving the user more details whilst hovering over, by using a tooltip. 
+Both visualisations have common interaction of giving the user more details whilst hovering over, by using a tooltip. This means the user can easily and quickly check any points of interest that htey may have.
 
 Visualisation Scatter plot:
 
@@ -134,6 +134,8 @@ The zoom allows more in depth analysis of particular range, and when combined al
 	
 Visualisation Sunburst:
 The interactivity allows a user to manipulate the data to explore a particular group by clicking and viewing it in more depth. The key dynamically changes helping show the user the different range. This helps because it doesn't limit the scope of the project because the eye will automatically be able to take in the percentage easier by a further in depth traversal, due to the next layer being the full circle, and some data being very small and hard to differentiate together. This means that the overall can be evaluated, but also each individual project and investment title.
+
+The percentages are dynamic so if you want to find a percentage you click on the parent and anything larger than 3% will be noted, for user simplicity, this helps quickly getting ano verall idea of the trends of spending inside a department.
 
 
 
@@ -151,9 +153,14 @@ I chose the D3.js library for the visualisation for several reasons.
 	There are several examples helping understand how it works, working iwth the time constraints of the project.
 	There is a live community, with Google groups and stack overflow often having answers from the developers.
 	
-Each visualisation is robust because they take the original data.
 
 The data was prepared for visualisation locally, allowing for another csv to be used to replace the data. It is assumed it is already cleaned before it is put into place. The sunburst has to prepare the data by using 'D3's .nest' function the flat csv structure into a hierchical structure.
 
+The data was refined using a combination of Microsoft Excel for quickly viewing the data, but mostly modified using regex and inside google refine. Google refines tools for clustering made it very quick and efficient to chagne once the errors had been spotted.
+
 For source control I use a local git repository that was backed up in dropbox. this meant that changes could be tracked, and reverted if neccessary.
 	
+	
+Section Completion:
+I am particularly proud of the range of data shown between the two graps, it shows clearly the variances in departments in once, whiulst giving a clear in depth analysis by department in the sunburst. 
+I am proud of how the sunburst only shows the relevant data, with the dynamic labelling giving the larger percentages and legend, to stop the user getting overwhelmed with data .
