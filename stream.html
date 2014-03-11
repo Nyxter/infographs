@@ -255,9 +255,8 @@
 	      .duration(750)
 	      .attrTween("d", arcTween(d))
 		  .each("end", function(e, i) {
-		          // check if the animated element's data e lies within the visible angle span given in d
-				  //also checks if only 1 row below
-		          if ((e.depth-1===d.depth)&&(e.x >= d.x && e.x < (d.x + d.dx))) {
+		          // checks if its parent is being shown.
+		          if (e.parent===d) {
 		            // get a selection of the associated text element
 		            var arcText = d3.select(this.parentNode).select("text");
 		            // fade in the text element and recalculate positions

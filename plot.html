@@ -196,7 +196,7 @@
                         
                           div .html(d.project +  "<br/>"+"<br/>" +"$"+
 
-          parseFloat(d.cost).toFixed(2)+"mil"+ "<br/>"+d.costVariance+"<br/>"+d.lifeVariance)  
+          parseFloat(d.cost).toFixed(1)+"mil"+ "<br/>"+"Cost Variance:" +d.costVariance+"<br/> Life Variance"+d.lifeVariance)  
                               .style("left", (d3.event.pageX) + "px")     
                               .style("top", (d3.event.pageY - 28) + "px");    
                           })                  
