@@ -1,4 +1,13 @@
 
+Live site:
+Can be found at :
+Your site is published at http://nyxter.github.io/infographs
+
+
+
+
+
+
 Section cleaning and manipulation.
 First I looked at common faults using the following links:
 http://www.tulane.edu/~panda2/Analysis2/datclean/dataclean.htm 
